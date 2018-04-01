@@ -1,67 +1,52 @@
 import * as React from 'react';
-import { View, Text, ScrollView, TextInput } from 'react-native';
+import { View, Text, ViewStyle } from 'react-native';
+import { Avatar, Badge, Icon } from 'react-native-elements';
+
+import { convertTime } from '../utils';
+import { constraints } from '../../config/constants';
 
 import styles from './styles';
 
-
-interface ChatProps {
-  chatName: string;
-  match: any;
+interface ConvoProps {
+  name: string;
+  message: string;
+  notification: number;
+  imageUri?: string;
+  time: Date;
+  style?: ViewStyle;
 }
 
-interface ChatStates {
-  text: string;
-}
+const ARROW_ICO_SIZE = 25;
 
-class Chat extends React.Component<ChatProps, ChatStates> {
-  constructor(props: ChatProps) {
-    super(props);
-    this.state = {
-      text: 'Text here',
-    };
-  }
+// TODO(DEV) get uri from props
+const URI = 'https://s3.amazonaws.com/uifaces/faces/twitter/kfriedson/128.jpg';
 
-  render() {
-    return (
-      <View style={styles.conversation}>
-        <Text style={styles.title}>Chat Name: {this.props.match.params.chatName}</Text>
-        <ScrollView>
-          <SingleMessage message="first chat" />
-          <SingleMessage message="2 chat" isUser />
-          <SingleMessage message="3 chat" />
-          <SingleMessage message="4 chat" />
-          <SingleMessage message="5 chat" />
-          <SingleMessage message="6 chat" isUser />
-          <SingleMessage message="7 chat" />
-          <SingleMessage message="8 chat" />
-          <SingleMessage message="9 chat" />
-          <SingleMessage message="10 chat" />
-          <SingleMessage message="11 chat" isUser />
-          <SingleMessage message="12 chat" />
-          <TextInput
-            style={styles.textInput}
-            placeholder='Your email (xxx@xxx.xxx)'
-            onChangeText={(text) => this.setState({ text })}
-            value={this.state.text}
-          />
-        </ScrollView>
-      </View>
 
-    );
-  }
-}
-
-interface SingleMessageProps {
-  message: string,
-  isUser?: boolean
-}
-
-const SingleMessage = ({ message, isUser = false }: SingleMessageProps) => {
-  return (
-    <View style={isUser ? styles.sent : styles.receive}>
-      <Text> {message} </Text>
+const Convo = ({ name, message, notification, time, imageUri = URI, style }: ConvoProps) => (
+  <View style={[styles.container, style]}>
+    <View style={styles.avatarContainer}>
+      <Avatar rounded medium source={{ uri: imageUri }} activeOpacity={0.7} containerStyle={{}} />
     </View>
-  );
-};
+    <View style={styles.nameAndMessage}>
+      {/* TODO(DEV) change color of message to grey-ish */}
+      <Text style={styles.name}>{name}</Text>
+      {/* TODO(UX) 1. don't hard-code 60, 2. add ellipses if message is not complete */}
+      <Text style={styles.message}>{message.substring(0, constraints.MAX_CONVO_TEXT_DISPLAY_LEN)}</Text>
+    </View>
+    <View style={styles.timeAndNotify}>
+      <Text style={styles.time}>{convertTime(time)}</Text>
+      <View style={styles.notification}>
+        {notification > 0 && <Badge
+          value={notification}
+          textStyle={styles.notificationValue}
+          containerStyle={styles.notificationIcon} />}
+        <Icon
+          name='keyboard-arrow-right'
+          size={ARROW_ICO_SIZE}
+          iconStyle={styles.arrow} />
+      </View>
+    </View>
+  </View>
+);
 
-export default Chat;
+export default Convo;

@@ -1,7 +1,8 @@
 import { HermesRoutes } from './constants';
 
-import Messages from '../components/Messages';
 import Contacts from '../components/Contacts';
+import Conversation from '../components/Conversation';
+import ChatList from '../components/ChatList';
 import Settings from '../components/Settings';
 
 interface HermesRoute {
@@ -16,7 +17,7 @@ const homeRoutes: Array<HermesRoute> = [
   {
     name: 'Messages',
     path: HermesRoutes.MESSAGES,
-    component: Messages,
+    component: ChatList,
     screen: false,
     exact: true,
   },
@@ -31,6 +32,14 @@ const homeRoutes: Array<HermesRoute> = [
     name: 'Settings',
     path: HermesRoutes.SETTINGS,
     component: Settings,
+    screen: false,
+    exact: true,
+  },
+  {
+    // TODO(DEV) change name
+    name: 'Conversation',
+    path: HermesRoutes.CONVERSATION,
+    component: Conversation,
     screen: false,
     exact: true,
   },

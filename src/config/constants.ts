@@ -29,6 +29,8 @@ export const Colors = {
   NOTIFICATION_VAL: AppColors.WHITE,
   SEPARATOR: AppColors.APP_COLOR,
   TEXT: AppColors.DARK,
+  RECEIVE_BUBBLE: AppColors.COLOR2,
+  SEND_BUBBLE: AppColors.DARK,
 };
 
 export const Font = {
@@ -39,8 +41,9 @@ export const HermesRoutes = {
   HOME: '/',
   LOGIN: '/login',
   SIGNUP: '/signup',
-  MESSAGES: '/messages',
+  CONVERSATION: '/conversation/:id',
   CONTACTS: '/contacts',
+  MESSAGES: '/messages',
   SETTINGS: '/settings',
 };
 
@@ -53,3 +56,8 @@ export enum Tabs {
   LANGUAGES = 'languages',
   EXTRA = 'extra',
 };
+
+export const constraints = {
+  MAX_BUBBLE_TEXT_DISPLAY_LEN: 200,
+  MAX_CONVO_TEXT_DISPLAY_LEN: 60,
+}

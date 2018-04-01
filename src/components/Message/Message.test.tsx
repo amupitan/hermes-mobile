@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Messages from './';
+import Message from './';
 
 import * as renderer from 'react-test-renderer';
 
 it('renders without crashing', () => {
-  const rendered = renderer.create(<Messages />).toJSON();
+  const rendered = renderer.create(<Message />).toJSON();
   expect(rendered).toBeTruthy();
 });
 

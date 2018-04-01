@@ -15,7 +15,7 @@ interface HomeProps {
 }
 
 const Home = ({ location: { pathname } }: HomeProps) => {
-  const name = (pathname === HermesRoutes.HOME ? DEFAULT_ROUTE_PATH : pathname).substring(1);
+  const name = (pathname === HermesRoutes.HOME ? DEFAULT_ROUTE_PATH : pathname);
   return (
     <View>
       <Header style={styles.homeHeader} {...{ name }} />
@@ -29,7 +29,7 @@ const Home = ({ location: { pathname } }: HomeProps) => {
           <Redirect to={{ pathname: DEFAULT_ROUTE_PATH }} />
         </Switch>
       </View>
-      <Nav style={styles.homeNav} active={name} />
+      <Nav style={styles.homeNav} active={name.substring(1)} />
     </View >
   );
 };

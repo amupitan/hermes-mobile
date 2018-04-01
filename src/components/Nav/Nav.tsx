@@ -3,7 +3,7 @@ import { View, ViewStyle } from 'react-native';
 import { Link } from 'react-router-native';
 import { Icon } from 'react-native-elements';
 
-import { Colors } from '../../config/constants';
+import { Colors, HermesRoutes } from '../../config/constants';
 import styles from './styles';
 
 const ICO_SIZE = 30;
@@ -18,32 +18,34 @@ const NavIcon = ({ name, active = true }: { name: string, active?: boolean }) =>
 
 const Nav = ({ style, active }: { style?: ViewStyle, active: string }) => (
   <View style={[styles.nav, style]}>
+    {/* TODO(DEV): handle highlist for a conversation */}
     <Link
-      to="/messages"
+      to={HermesRoutes.MESSAGES}
       underlayColor='#f0f4f7'
       style={styles.navItem}>
       <NavIcon name='message' active={active === 'messages'} />
     </Link>
     <Link
-      to="/contacts"
+      // TODO(DEV) change back to contacts
+      to={HermesRoutes.CONVERSATION}
       underlayColor='#f0f4f7'
       style={styles.navItem} >
       <NavIcon name='person-add' active={active === 'contacts'} />
     </Link>
     <Link
-      to="/signup"
+      to={HermesRoutes.SIGNUP}
       underlayColor='#f0f4f7'
       style={styles.navItem} >
       <NavIcon name='person-outline' active={active === 'extra'} />
     </Link>
     <Link
-      to="/login"
+      to={HermesRoutes.LOGIN}
       underlayColor='#f0f4f7'
       style={styles.navItem}>
       <NavIcon name='person-pin' active={active === 'languages'} />
     </Link>
     <Link
-      to="/settings"
+      to={HermesRoutes.SETTINGS}
       underlayColor='#f0f4f7'
       style={styles.navItem}>
       <NavIcon name='settings' active={active === 'settings'} />

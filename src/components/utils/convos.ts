@@ -31,6 +31,8 @@ export const user2: User = {
   contacts: [user1],
 };
 
+const stub = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ';
+
 export const convo: Conversation = {
   id: 0,
   pm: true,
@@ -41,6 +43,9 @@ export const convo: Conversation = {
     { owner: 2, content: 'Hey!', time: new Date() },
     { owner: 1, content: 'How’s it going?', time: new Date() },
     { owner: 2, content: 'Good 👍🏿', time: new Date() },
+    { owner: 2, content: stub, time: new Date() },
+    { owner: 1, content: 'What’s that fam? 😕', time: new Date() },
+
   ]
 };
 

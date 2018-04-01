@@ -1,41 +1,59 @@
 import { StyleSheet } from 'react-native';
 
+import { Colors } from '../../config/constants';
+
 export default StyleSheet.create({
-  receive: {
-    marginTop: 15,
-    padding: 10,
-    borderBottomWidth: 2,
-    alignSelf: 'flex-start',
-    backgroundColor: 'skyblue',
-    borderRadius: 4,
+  container: {
+    width: '100%',
+    height: '100%',
+    flexDirection: 'row',
+    borderBottomColor: Colors.SEPARATOR,
+    borderBottomWidth: 0.5,
   },
-  sent: {
-    marginTop: 15,
-    padding: 10,
-    borderBottomWidth: 2,
-    alignSelf: 'flex-end',
-    backgroundColor: 'skyblue',
-    borderRadius: 4,
+  avatarContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '19%',
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    borderBottomWidth: 2,
+  nameAndMessage: {
+    flexDirection: 'column',
+    width: '63%',
+    height: '100%',
+  },
+  name: {
+    flex: 1,
+    fontWeight: '600',
+    fontSize: 17,
+    marginTop: '3%',
   },
   message: {
-    fontWeight: 'bold',
-
+    marginTop: '1%',
+    flex: 2,
   },
-  textInput: {
-    marginTop: 15,
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    backgroundColor: 'skyblue'
+  timeAndNotify: {
+    flexDirection: 'column',
+    width: '18%',
+    alignItems: 'center',
+    height: '100%',
   },
-  conversation: {
-    borderWidth: 1,
-    borderRadius: 1,
-    paddingBottom: 30,
-  }
+  time: {
+    alignSelf: 'center',
+    marginTop: '8%',
+    flex: 1,
+  },
+  notification: {
+    flex: 2,
+    marginTop: '14%',
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+  },
+  notificationIcon: {
+    backgroundColor: Colors.NOTIFICATION_BG,
+  },
+  notificationValue: {
+    color: Colors.NOTIFICATION_VAL,
+  },
+  arrow: {
+    color: Colors.ICON,
+  },
 });
