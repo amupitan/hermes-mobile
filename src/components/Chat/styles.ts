@@ -40,6 +40,7 @@ export default StyleSheet.create({
     alignSelf: 'center',
     marginTop: '8%',
     flex: 1,
+    color: Colors.TIME_TEXT,
   },
   notification: {
     flex: 2,

@@ -32,5 +32,6 @@ export default StyleSheet.create({
   bubbleTime: {
     fontSize: 8,
     alignSelf: 'flex-end',
+    color: Colors.TIME_TEXT,
   },
 });

@@ -31,6 +31,7 @@ export const Colors = {
   TEXT: AppColors.DARK,
   RECEIVE_BUBBLE: AppColors.COLOR2,
   SEND_BUBBLE: AppColors.DARK,
+  TIME_TEXT: AppColors.BLACK,
 };
 
 export const Font = {
