@@ -27,8 +27,6 @@ export default StyleSheet.create({
     width: '10%',
   },
   textBox: {
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.EDITOR_BORDER,
     width: '80%',
     fontSize: 19,
     marginBottom: 2,
