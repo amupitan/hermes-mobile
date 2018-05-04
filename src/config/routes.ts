@@ -45,6 +45,7 @@ const homeRoutes: Array<HermesRoute> = [
   },
 ];
 
-export const DEFAULT_ROUTE_PATH = homeRoutes[0].path;
+// TODO(DEV) change this back
+export const DEFAULT_ROUTE_PATH = homeRoutes[3].path;
 
 export default homeRoutes;
