@@ -14,7 +14,7 @@ interface MessageProps {
   content: string;
   time: Date;
   sender: boolean;
-  style: ViewStyle;
+  style?: ViewStyle;
 }
 
 const Message = ({ content, time, sender, style }: MessageProps) => {
