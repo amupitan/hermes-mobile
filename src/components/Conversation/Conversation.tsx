@@ -13,6 +13,9 @@ const user = user1;
 const convoId: number = user1.convos[0];
 const convo = convos[convoId];
 
+/**
+ * A view of messages across users
+ */
 const Conversation = () => (
   <View style={styles.container}>
     <KeyboardAvoidingView behavior='padding' >

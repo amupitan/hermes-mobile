@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, FlatList } from 'react-native';
 import Chat from '../Chat';
 
 // TODO(DEV) use real data
@@ -13,17 +13,12 @@ const convo = convos[convoId];
 const lastMessage = convo.messages[convo.messages.length - 1];
 
 const ChatList = () => (
-  // TODO(DEV) use a real scroller
-  <ScrollView contentContainerStyle={styles.container}>
+  <FlatList data={
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].map((x) => ({ key: x }))
+  } renderItem={({ item }) => (
     <Chat style={styles.convo} notification={1} name={convo.members[1].name} message={lastMessage.content} time={lastMessage.time} />
-    <Chat style={styles.convo} notification={0} name={convo.members[1].name} message={lastMessage.content} time={lastMessage.time} />
-    <Chat style={styles.convo} notification={1} name={convo.members[1].name} message={lastMessage.content} time={lastMessage.time} />
-    <Chat style={styles.convo} notification={10} name={convo.members[1].name} message={lastMessage.content} time={lastMessage.time} />
-    <Chat style={styles.convo} notification={100} name={convo.members[1].name} message={lastMessage.content} time={lastMessage.time} />
-    <Chat style={styles.convo} notification={99} name={convo.members[1].name} message={lastMessage.content} time={lastMessage.time} />
-    <Chat style={styles.convo} notification={1} name={convo.members[1].name} message={lastMessage.content} time={lastMessage.time} />
-    <Chat style={styles.convo} notification={1} name={convo.members[1].name} message={lastMessage.content} time={lastMessage.time} />
-  </ScrollView>
+  )} />
+
 );
 
 export default ChatList;

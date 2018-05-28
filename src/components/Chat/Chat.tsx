@@ -21,11 +21,15 @@ const ARROW_ICO_SIZE = 25;
 // TODO(DEV) get uri from props
 const URI = 'https://s3.amazonaws.com/uifaces/faces/twitter/kfriedson/128.jpg';
 
-
+/**
+ * A link to a conversation
+ * @param ConvoProps 
+ */
 const Convo = ({ name, message, notification, time, imageUri = URI, style }: ConvoProps) => (
-  <View style={[styles.container, style]}>
+  <View style={[styles.container, style]} >
     <View style={styles.avatarContainer}>
-      <Avatar rounded medium source={{ uri: imageUri }} activeOpacity={0.7} containerStyle={{}} />
+      {/* TODO(UX) get size and opacity externally */}
+      <Avatar rounded size='medium' source={{ uri: imageUri }} activeOpacity={0.7} />
     </View>
     <View style={styles.nameAndMessage}>
       {/* TODO(DEV) change color of message to grey-ish */}

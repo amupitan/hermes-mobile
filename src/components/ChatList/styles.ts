@@ -8,6 +8,6 @@ export default StyleSheet.create({
   convo: {
     maxWidth: '100%',
     maxHeight: '100%',
-    height: '13%',
+    height: 75, //TODO(UX) get from external source
   }
 });
