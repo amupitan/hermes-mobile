@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { KeyboardAvoidingView, ScrollView, TextInput, View, ViewStyle } from 'react-native';
+import { FlatList, KeyboardAvoidingView, ScrollView, TextInput, View, ViewStyle } from 'react-native';
 import { Icon } from 'react-native-elements';
 
 // TODO(DEV) use real data
@@ -19,20 +19,20 @@ const convo = convos[convoId];
 const Conversation = () => (
   <View style={styles.container}>
     <KeyboardAvoidingView behavior='padding' >
-      {/* TODO(DEV) use a real scroll */}
-      <ScrollView contentContainerStyle={styles.conversationContainer} >
-        {convo.messages.map((msg, i) => (
-          <Message
-            key={`message-${i}`}
-            style={styles.message}
-            content={msg.content}
-            time={msg.time}
-            sender={user.id === msg.owner} />
-        ))}
-      </ScrollView>
+      <FlatList data={
+        convo.messages.map((msg, i) => ({ ...msg, key: i }))
+      } renderItem={({ item }) => (
+        <Message
+          style={styles.message}
+          content={item.content}
+          time={item.time}
+          sender={user.id === item.owner}
+        />
+      )}
+      />
       <InputBox style={styles.inputContainer} />
       {/* TODO(UX): use a better way to make the page move with the keyboard.  */}
-      <View style={{ height: 100 }} />
+      {/* <View style={{ height: 100 }} /> */}
     </KeyboardAvoidingView>
   </View>
 

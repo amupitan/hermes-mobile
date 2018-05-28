@@ -10,16 +10,16 @@ export default StyleSheet.create({
   },
   conversationContainer: {
     width: '100%',
-    height: '93%',
+    // height: '80%',
   },
   message: {
-    maxWidth: '100%',
-    minHeight: '13%',
+    // maxWidth: '100%',
+    // minHeight: '13%',
   },
   inputContainer: {
     flexDirection: 'row',
     width: '100%',
-    height: '7%',
+    height: '30%',
     borderTopWidth: .5,
     borderTopColor: Colors.EDITOR_BORDER,
   },
