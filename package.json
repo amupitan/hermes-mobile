@@ -11,6 +11,7 @@
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0",
     "jest-expo": "25.0.0",
+    "react-devtools": "^3.2.1",
     "react-native-scripts-ts": "1.11.4",
     "react-native-typescript-transformer": "^1.2.3",
     "react-test-renderer": "16.2.0",
@@ -26,7 +27,8 @@
     "android": "react-native-scripts-ts android",
     "ios": "react-native-scripts-ts ios",
     "test": "node node_modules/jest/bin/jest.js",
-    "lint": "eslint . --ext .ts,.tsx --ignore-pattern node_modules/"
+    "lint": "eslint . --ext .ts,.tsx --ignore-pattern node_modules/",
+    "devtools": "react-devtools"
   },
   "jest": {
     "globals": {
