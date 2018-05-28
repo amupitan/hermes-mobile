@@ -18,7 +18,7 @@ const convo = convos[convoId];
  */
 const Conversation = () => (
   <View style={styles.container}>
-    <KeyboardAvoidingView behavior='padding' >
+    <KeyboardAvoidingView behavior='padding' style={styles.keyboard} >
       <FlatList data={
         convo.messages.map((msg, i) => ({ ...msg, key: i }))
       } renderItem={({ item }) => (
@@ -30,7 +30,7 @@ const Conversation = () => (
         />
       )}
       />
-      <InputBox style={styles.inputContainer} />
+      <InputBox style={{ width: '100%', height: '8%' }} />
       {/* TODO(UX): use a better way to make the page move with the keyboard.  */}
       {/* <View style={{ height: 100 }} /> */}
     </KeyboardAvoidingView>
@@ -44,11 +44,13 @@ const InputBox = ({ style }: { style: ViewStyle }) => (
       name={'tag-faces'}
       size={20}
       containerStyle={styles.textIcon} />
-    <TextInput
-      returnKeyType={'send'}
-      multiline
-      style={styles.textBox}
-      placeholder={'Write a message...'} />
+    <View style={styles.textBoxContainer}>
+      <TextInput
+        returnKeyType={'send'}
+        multiline
+        style={styles.textBox}
+        placeholder={'Write a message...'} />
+    </View>
     <Icon
       name={'add'}
       size={20}
